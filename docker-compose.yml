@@ -1,0 +1,21 @@
+version: "3"
+services:
+  postgres:
+    build:
+      context: ./db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=trees3r4t
+      - APP_POSTGRES_DB=treedb
+      - APP_POSTGRES_USER=trees
+      - APP_POSTGRES_PASSWORD=trees3r4t
+    # env_file:
+    #   - database.env # configure postgres
+    image: postgres
+    # image: postgres:12.1-alpine
+    ports:
+      - "5432:5432"
+    container_name: treedbdocker
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      # - ./db/treedb2.sql:/docker-entrypoint-initdb.d
