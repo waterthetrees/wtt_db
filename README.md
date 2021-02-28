@@ -30,9 +30,10 @@ $ docker-compose up (If its already built)
 
 ## PostgreSQL locally Without Docker (Takes longer)
 
-### INSTALL Postgres from download
+### INSTALL Postgres/PostGIS from download
 choose postgres 12.5
 https://www.postgresql.org/download/
+
 
 ### INSTALL Postgres with brew (recommended if you are not using docker)
 ```shell
@@ -51,3 +52,7 @@ Run this:
 ```shell
 $ ./create_database.sh
 ```
+
+
+## TILESET TOKEN
+sk.eyJ1IjoiMTAwa3RyZWVzIiwiYSI6ImNrbGlzOWV5ZTJhaHIycG1sNmo3aXVpYXoifQ.rs3jiio_FAx-jDGfWmmmzA

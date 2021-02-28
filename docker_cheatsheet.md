@@ -28,4 +28,6 @@ $ docker stop 06f3b2498fdc
 $ docker rmi Image
 $ docker rmi -f 06f3b2498fdc  1f1bd4302537
 $ docker-compose rm -fv
+$ docker stop wtt_server wtt_front wtt_db
+$ docker rm wtt_server wtt_front wtt_db
 ```
