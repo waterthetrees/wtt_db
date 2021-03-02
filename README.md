@@ -1,6 +1,12 @@
-# wtt_db
+# waterthetrees
 
-## PostgreSQL with Docker-Compose (recommended)
+Water The Trees is a platform that crowd sources tree planting and maintenance. We believe in the power of trees to restore natural habitat for animals, insects, and fauna. We are interesting in continuous massive tree planting events to help sequester carbon and stabilize climate change extremes.
+
+## Join Us!
+
+https://docs.google.com/document/d/1L5Hc8_K_NhVhAejdE05C_Y__CgqeBWFrFYFoNqBSBbQ/edit
+Water the Trees is an open source project run by tree planting volunteers at Sierra Club, Public Works, and developers at Code for America.
+
 
 ### INSTALL GIT
 -------------
@@ -11,48 +17,28 @@
 1. install docker https://www.docker.com/get-started
 2. install docker-compose (only on linux, on osx this installs with docker)
 
-### CLONE DB REPO
+### CLONE REPO
 -------------
 1. Open terminal and run this
 ```shell
-$ git clone https://github.com/waterthetrees/wtt_db.git
-$ cd wtt_db
+$ git clone https://github.com/waterthetrees/waterthetrees.git
+$ cd waterthetrees
 ```
 
 ### BUILD AND START THE DOCKER
 ---------------
-1. start service: 
+1. run shell script to clone all repos and do docker-compose: 
 ```shell
-$ docker-compose up --build
-$ docker-compose up (If its already built)
+$ ./install_and_build.sh
 ```
 
-
-## PostgreSQL locally Without Docker (Takes longer)
-
-### INSTALL Postgres/PostGIS from download
-choose postgres 12.5
-https://www.postgresql.org/download/
-
-
-### INSTALL Postgres with brew (recommended if you are not using docker)
+### OPEN TABS and start the servers
+---------------
+1. Command T (on osx)
 ```shell
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ brew -v
-$ brew update
-$ brew install postgres
-$ psql --version
-$ brew services start postgres
-$ brew services stop postgres
+$ cd wtt_front;npm start;
 ```
-
-## CREATE DATABASE Manually Without Docker and Import Data
-Run this:
-
+2. Command T (on osx)
 ```shell
-$ ./create_database.sh
+$ cd wtt_server;npm start;
 ```
-
-
-## TILESET TOKEN
-sk.eyJ1IjoiMTAwa3RyZWVzIiwiYSI6ImNrbGlzOWV5ZTJhaHIycG1sNmo3aXVpYXoifQ.rs3jiio_FAx-jDGfWmmmzA
