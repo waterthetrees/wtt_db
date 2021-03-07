@@ -1,13 +1,16 @@
 # POSTGIS cheatsheet
 
 https://postgresql.r2schools.com/how-to-install-postgis-in-ubuntu/
+https://postgis.net/install/ for osx/ubuntu
+
+CREATE EXTENSION postgis;
 
 ALTER TABLE treedata ADD COLUMN geom geometry(Point,4326);
 
-
+UPDATE treedata SET geom = ST_SetSRID(ST_MakePoint(lng, lat), 4326);
 UPDATE treedata SET geom = ST_Transform(ST_SetSRID(ST_MakePoint(lng, lat), 4326),26913);
 
-select common, st_astext( ST_Transform( geom, 4326 ) ) from treedata;
+select common, st_astext( ST_Transform( geom, 4326 ) )  from treedata;
 
 SELECT ST_AsText(ST_AsMVTGeom(geom) AS geom), common, scientific, health FROM treedata;
 
