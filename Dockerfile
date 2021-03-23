@@ -1,4 +1,4 @@
-FROM postgres
+FROM postgis/postgis
 
 ADD init-db.sh /docker-entrypoint-initdb.d/
 ADD treedb.sql /db-dumps/
