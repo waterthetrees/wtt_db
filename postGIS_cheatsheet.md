@@ -44,7 +44,11 @@ CREATE INDEX treedata_geom_idx ON treedata USING GIST (geom);
 ## Add regular btree index
 CREATE INDEX ON treedata (geom);
 
+## Show triggers
+\dS <tablename>
 
+## how trigger-function
+\df+ <functionname>
 
 https://postgresql.r2schools.com/how-to-install-postgis-in-ubuntu/
 
@@ -84,3 +88,33 @@ SELECT ST_AsMVT(q, 'testlayer', 4096, 'geom')
   `; -->
 
 
+CREATE OR REPLACE FUNCTION countCityTrees() RETURNS TRIGGER AS $example_table$
+   BEGIN
+      INSERT INTO AUDIT(EMP_ID, ENTRY_DATE) VALUES (new.ID, current_timestamp);
+      RETURN NEW;
+   END;
+$example_table$ LANGUAGE plpgsql;
+
+CREATE FUNCTION public.count_city_trees() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+    BEGIN
+        NEW.count = now();
+        RETURN NEW;
+    END;
+$$;
+
+CREATE FUNCTION count_increment() RETURNS TRIGGER AS $_$
+BEGIN
+UPDATE cities SET count = count + 1 WHERE treedata = TG_RELID;
+RETURN NEW;
+END $_$ LANGUAGE 'plpgsql';
+
+CREATE FUNCTION count_decrement() RETURNS TRIGGER AS $_$
+BEGIN
+UPDATE cities SET count = count - 1  WHERE treedata = TG_RELID;
+RETURN NEW;
+END $_$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER cities_increment_trig AFTER INSERT ON treedata FOR EACH ROW EXECUTE PROCEDURE count_increment();
+CREATE TRIGGER cities_decrement_trig AFTER DELETE ON treedata FOR EACH ROW EXECUTE PROCEDURE count_decrement();

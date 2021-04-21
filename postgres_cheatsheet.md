@@ -27,10 +27,14 @@ pg_dump --no-owner -h 127.0.0.1 -p 5432 -U username --exclude-table=foo database
 pg_dump --no-owner -h 127.0.0.1 -p 5432 -U username --table=foo database > tmp.sql
 
 # backup and restore
+psql -U username dbname < dbexport.pgsql
 PGPASSWORD=password && pg_dump --no-owner -h 127.0.0.1 -p 5432 -U username database > tmp.sql
 psql -U postgres -d database -c "drop schema public cascade; create schema public;"
 psql --set ON_ERROR_STOP=on -U postgres -d database -1 -f tmp.sql
 rm tmp.sql
+
+# index all id's
+CREATE INDEX ON cities (id_city);
 
 # if you need to remove unintentionally backuped owners afterwards
 sed -i.bak '/OWNER TO specialowner/d' input.sql
@@ -89,3 +93,14 @@ where option can be one of:
     FORCE_QUOTE { ( column_name [, ...] ) | * }
     FORCE_NOT_NULL ( column_name [, ...] )
     ENCODING 'encoding_name'
+
+# Add foreign key to existing table
+ALTER TABLE cities ADD UNIQUE (city);
+CREATE INDEX ON cities (city);
+
+\d+ cities
+    "cities_city_idx" btree (city)
+    "cities_id_city_idx" btree (id_city)
+
+ALTER TABLE cities ADD CONSTRAINT city  UNIQUE USING INDEX cities_id_city_idx;
+ALTER TABLE cities ADD FOREIGN KEY (city) REFERENCES treedata(city) ON UPDATE CASCADE ON DELETE CASCADE
