@@ -38,3 +38,20 @@ $ docker-compose up
 ```shell
 $ psql -U trees -d treedb -h 127.0.0.1
 ```
+
+
+### TO MAKE CHANGES TO THE treedb.sql FILE
+---------------
+FOLLOW DIRECTIONS HERE: https://git-lfs.github.com/ 
+The treedb.sql file is over 100MB that is allowed on git
+
+Example for mac:
+```shell
+$ brew install git-lfs
+$ git lfs install
+$ git lfs track "treedb.sql"
+$ git add .gitattributes
+$ git add treedb.sql
+$ git commit -m "database changes"
+$ git push origin dbfixes (or whatever branch you are working in)
+```
