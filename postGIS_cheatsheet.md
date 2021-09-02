@@ -118,3 +118,5 @@ END $_$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER cities_increment_trig AFTER INSERT ON treedata FOR EACH ROW EXECUTE PROCEDURE count_increment();
 CREATE TRIGGER cities_decrement_trig AFTER DELETE ON treedata FOR EACH ROW EXECUTE PROCEDURE count_decrement();
+DROP TRIGGER update_treedata_modtime on public.treedata;
+CREATE TRIGGER update_treedata_modtime AFTER UPDATE ON public.treedata FOR EACH ROW EXECUTE FUNCTION public.update_modified_column();
