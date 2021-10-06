@@ -17,28 +17,41 @@ Water the Trees is an open source project run by tree planting volunteers at Sie
 1. install docker https://www.docker.com/get-started
 2. install docker-compose (only on linux, on osx this installs with docker)
 
-### CLONE REPO
+### CLONE REPOS
 -------------
 1. Open terminal and run this
 ```shell
 $ git clone https://github.com/waterthetrees/waterthetrees.git
 $ cd waterthetrees
+$ ./clone_repos.sh
 ```
 
 ### BUILD AND START THE DOCKER
----------------
-1. run shell script to clone all repos and do docker-compose: 
+--------------- 
 ```shell
-$ ./install_and_build.sh
+$ docker-compose up
 ```
 
-### OPEN TABS and start the servers
+### TO access DB via command line if you need to
 ---------------
-1. Command T (on osx)
+1. Command T (on osx) for new terminal tab
 ```shell
-$ cd wtt_front;npm start;
+$ psql -U trees -d treedb -h 127.0.0.1
 ```
-2. Command T (on osx)
+
+
+### TO MAKE CHANGES TO THE treedb.sql FILE
+---------------
+FOLLOW DIRECTIONS HERE: https://git-lfs.github.com/ 
+The treedb.sql file is over 100MB that is allowed on git
+
+Example for mac:
 ```shell
-$ cd wtt_server;npm start;
+$ brew install git-lfs
+$ git lfs install
+$ git lfs track "treedb.sql"
+$ git add .gitattributes
+$ git add treedb.sql
+$ git commit -m "database changes"
+$ git push origin dbfixes (or whatever branch you are working in)
 ```
