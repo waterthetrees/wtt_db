@@ -1,9 +1,14 @@
-CREATE TABLE newoaklandtable AS SELECT * FROM treedata WHERE false;
+-- GOAL - copy in new data and delete any old data that does not have current modified date
 
-\COPY newoaklandtable FROM '/Users/aa/Desktop/APPS/wtt/wtt_data/csv_data_dump_august.csv' DELIMITER ',' CSV HEADER;
+CREATE TABLE IF NOT EXISTS newoaklandtable AS SELECT * FROM treedata WHERE false;
 
-UPDATE newoaklandtable set created = '2021-09-01 00:00:00.000000' where created IS NULL;
-UPDATE newoaklandtable set modified = '2021-09-01 00:00:00.000000';
+\COPY newoaklandtable FROM '/home/trees/.db/oakland_tree_update_bart.csv' DELIMITER ',' CSV HEADER;
+
+alter table newoaklandtable add column irrigation boolean;
+alter table treedata add column irrigation boolean;
+
+UPDATE newoaklandtable set created = '2021-09-14 00:00:00.000000' where created IS NULL;
+UPDATE newoaklandtable set modified = '2021-09-14 00:00:00.000000';
 
 UPDATE treedata s 
 SET 
@@ -18,8 +23,12 @@ planting_opt2 = o.planting_opt2, planting_opt3 = o.planting_opt3,
 side_type = o.side_type, location_tree_count = o.location_tree_count, geom = o.geom, legal_status = o.legal_status
 FROM newoaklandtable o 
 WHERE s.id_tree = o.id_tree
-AND s.city = 'Oakland' 
-AND o.date_planted IS NOT NULL;
+AND s.city = 'Oakland';
 
 select count(*) from treedata where modified > current_timestamp - interval '2 days';
+
+-- // use this to delete
 select count(*) from treedata where modified < current_timestamp - interval '2 days' AND city = 'Oakland';
+DELETE FROM treedata where modified < current_timestamp - interval '2 days' AND city = 'Oakland';
+
+SELECT id_tree, common, genus, scientific FROM newoaklandtable EXCEPT SELECT id_tree, common, genus, scientific FROM treedata newoaklandtable;
