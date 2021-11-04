@@ -1,0 +1,28 @@
+{
+  "name": "wtt_db",
+  "version": "1.0.0",
+  "description": "Water The Trees is a platform that crowd sources tree planting and maintenance. We believe in the power of trees to restore natural habitat for animals, insects, and fauna. We are interesting in continuous massive tree planting events to help sequester carbon and stabilize climate change extremes.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "date-fns": "^2.23.0",
+    "dotenv": "^10.0.0",
+    "pg-promise": "^10.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waterthetrees/wtt_db.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waterthetrees/wtt_db/issues"
+  },
+  "homepage": "https://github.com/waterthetrees/wtt_db#readme"
+}

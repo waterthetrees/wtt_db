@@ -4,7 +4,6 @@ echo "${POSTGRES_USER} ${POSTGRES_DB}"
 echo "username:password ${DB_USER}:${DB_PASSWORD} database ${DB_NAME}" 
 echo "${POSTGRES_USER}" == "postgres"
 
-
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
     CREATE USER trees WITH ENCRYPTED PASSWORD 'trees3r4t';
     CREATE DATABASE treedb;
