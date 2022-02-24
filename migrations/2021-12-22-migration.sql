@@ -52,3 +52,7 @@ update treedata set scientific = 'Quercus rubra' WHERE common = 'Red oak' AND sc
 update treedata set scientific = 'Quercus rubra', common = 'Red Oak' WHERE common = 'Red Oak' AND scientific is NULL;
 update treedata set scientific = 'Laurus nobilis ''Saratoga''' WHERE common = 'Saratoga Laurel' AND scientific is NULL;
 update treedata set scientific = 'Acer macrophyllum', common = 'Bigleaf Maple' WHERE common = 'Acer macrophyllum' AND scientific is NULL;
+
+SELECT scientific,  SUBSTR(scientific,1, POSITION(' ' IN scientific)) FROM treedata where genus is null limit 5;
+
+UPDATE treedata SET genus = SUBSTR(scientific,1, POSITION(' ' IN scientific)) WHERE genus IS NULL;
