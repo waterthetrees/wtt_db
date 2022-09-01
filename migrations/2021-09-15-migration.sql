@@ -1,6 +1,6 @@
 CREATE TABLE city_downloads (
     id_city_downloads integer NOT NULL generated always as identity (start with 10 increment by 1),
-     id_city_name character varying(255)
+    id_city_name character varying(255)
     email character varying(255),
     who character varying(255),
     country text,
