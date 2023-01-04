@@ -55,3 +55,15 @@ $ git add treedb.sql
 $ git commit -m "database changes"
 $ git push origin dbfixes (or whatever branch you are working in)
 ```
+
+### HOW TO MAKE DATABASE CHANGES
+---------------
+Add database changes should be made as migration files in the `migrations/` directory.
+The migration file should follow the format `yyyy-mm-dd-migration.sql`.
+These files should be run against a local version of postgres for testing.
+
+After running the migration, we want to keep the database table files up-to-date.
+All schema changes and pull requests with migrations should run the
+`scipts/fetch-tables.sh` script. This will update all table files in the `tables/` directory.
+The script can be run against a local postgres instance.
+
