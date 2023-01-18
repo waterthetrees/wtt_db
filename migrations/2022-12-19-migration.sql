@@ -1,0 +1,16 @@
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS species character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS family character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS class character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS variety character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS location character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS ref character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS iso_alpha_2 character varying(2);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS iso_alpha_3 character varying(3);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS numeric_country_code integer DEFAULT 0;
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS info text;
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS download text;
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS count integer DEFAULT 1;
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS planted character varying(255);
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS modified timestamp without time zone not null DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE treedata ADD COLUMN IF NOT EXISTS created timestamp without time zone;
+ALTER TABLE cities ADD COLUMN IF NOT EXISTS id_source character varying(255);
