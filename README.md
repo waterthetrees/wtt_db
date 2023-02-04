@@ -39,6 +39,13 @@ $ docker-compose up
 $ psql -U trees -d treedb -h 127.0.0.1
 ```
 
+### SETUP TEST DB
+---------------
+1. Command T (on osx) for new terminal tab
+```shell
+$ psql -U postgres -h localhost -c "CREATE DATABASE treedb-test"
+$ psql -U postgres -h localhost -d treedb-test -f treedb-schema.sql
+```
 
 ### TO MAKE CHANGES TO THE treedb.sql FILE
 ---------------
