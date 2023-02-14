@@ -10,7 +10,6 @@ CREATE TABLE public.sources (
     iso_alpha_3 character varying(3),
     numeric_country_code integer DEFAULT 0,
     long character varying(255),
-    id_name2 character varying(255),
     main character varying(255),
     center character varying(255),
     longitude double precision,
