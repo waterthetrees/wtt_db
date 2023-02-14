@@ -1,7 +1,7 @@
 
 CREATE TABLE public.crosswalk (
     id_crosswalk integer NOT NULL,
-    id character varying(255),
+    id_source_name character varying(255),
     common character varying(255),
     species character varying(255),
     genus character varying(255),
@@ -21,7 +21,7 @@ CREATE TABLE public.crosswalk (
     location character varying(255),
     note character varying(255),
     address character varying(255),
-    ref character varying(255),
+    id_reference character varying(255),
     owner character varying(255),
     ule character varying(255),
     ule_min character varying(255),
@@ -49,7 +49,7 @@ ALTER TABLE public.crosswalk ALTER COLUMN id_crosswalk ADD GENERATED ALWAYS AS I
 
 
 ALTER TABLE ONLY public.crosswalk
-    ADD CONSTRAINT crosswalk_id_fkey FOREIGN KEY (id) REFERENCES public.sources(id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT crosswalk_id_fkey FOREIGN KEY (id_source_name) REFERENCES public.sources(id_source_name) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 
