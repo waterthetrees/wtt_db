@@ -13,7 +13,7 @@ ALTER TABLE "treedata" ADD height_min INTEGER;
 ALTER TABLE "treedata" ADD height_max INTEGER;
 ALTER TABLE "treedata" ADD crown_min INTEGER;
 ALTER TABLE "treedata" ADD crown_max INTEGER;
-
+ALTER TABLE "crosswalk" ADD class VARCHAR(255);
 
 
 ALTER TABLE "treedata" DROP COLUMN iso_alpha_2;
