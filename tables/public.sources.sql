@@ -21,7 +21,7 @@ CREATE TABLE public.sources (
     trees_per_source_count integer DEFAULT 0,
     country_code character varying(10),
     broken boolean DEFAULT false,
-    broken_reason character varying(255),
+    notes character varying(255),
     info text,
     download text,
     format character varying(255),
