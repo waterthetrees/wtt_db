@@ -17,22 +17,22 @@ CREATE UNLOGGED TABLE tree_sources_staging (
 
     -- crosswalk fields, as per opentrees schema
     scientific   character varying(255),
-    genus   character varying(255),
-    species   character varying(255),
-    variety   character varying(255),
-    common   character varying(255),
-    dbh   character varying(255),
-    health   character varying(255),
-    height   character varying(255),
-    crown   character varying(255),
-    spread   character varying(255),
-    ule   character varying(255),
-    updated   character varying(255),
-    planted   character varying(255),
-    note   character varying(255),
+    genus       character varying(255),
+    species     character varying(255),
+    variety     character varying(255),
+    common      character varying(255),
+    dbh         character varying(255),
+    health      character varying(255),
+    height      character varying(255),
+    crown       character varying(255),
+    spread      character varying(255),
+    ule         character varying(255),
+    updated     character varying(255),
+    planted     character varying(255),
+    note        character varying(255),
 
-    address      character varying(255),
-    created      timestamp without time zone
+    address     character varying(255),
+    created     timestamp without time zone
 );
 
 
