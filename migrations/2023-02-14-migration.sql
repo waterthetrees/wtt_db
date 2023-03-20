@@ -6,6 +6,8 @@ ALTER TABLE "crosswalk" RENAME COLUMN "ref" to id_reference;
 ALTER TABLE "sources" DROP COLUMN id_city_name;
 ALTER TABLE "cities" DROP COLUMN id_source;
 ALTER TABLE "sources" DROP COLUMN id_name2;
+ALTER TABLE "sources" DROP COLUMN broken_reason;
+ALTER TABLE "sources" ADD notes text;
 
 ALTER TABLE "treedata" ADD dbh_min INTEGER;
 ALTER TABLE "treedata" ADD dbh_max INTEGER;

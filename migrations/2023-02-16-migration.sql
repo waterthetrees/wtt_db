@@ -1,5 +1,4 @@
-ALTER TABLE "sources" RENAME COLUMN "broken_reason" to notes;
-ALTER TABLE "crosswalk" RENAME COLUMN "longitude" to longitude;
+ALTER TABLE "crosswalk" RENAME COLUMN "lng" to longitude;
 ALTER TABLE "crosswalk" RENAME COLUMN "lat" to latitude;
 ALTER TABLE "crosswalk" ADD id_reference VARCHAR(255);
 ALTER TABLE "crosswalk" ADD class VARCHAR(255);
