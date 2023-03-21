@@ -1,7 +1,7 @@
 
 CREATE TABLE public.crosswalk (
     id_crosswalk integer NOT NULL,
-    id character varying(255),
+    id_source_name character varying(255),
     common character varying(255),
     species character varying(255),
     genus character varying(255),
@@ -21,7 +21,7 @@ CREATE TABLE public.crosswalk (
     location character varying(255),
     note character varying(255),
     address character varying(255),
-    ref character varying(255),
+    id_reference character varying(255),
     owner character varying(255),
     ule character varying(255),
     ule_min character varying(255),
@@ -30,7 +30,34 @@ CREATE TABLE public.crosswalk (
     gps_date character varying(255),
     audited character varying(255),
     modified timestamp without time zone,
-    created timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    created timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    class character varying(255),
+    longitude character varying(255),
+    latitude character varying(255),
+    who character varying(255),
+    city character varying(255),
+    state character varying(255),
+    zip character varying(255),
+    country character varying(255),
+    neighborhood character varying(255),
+    url character varying(255),
+    urlimage character varying(255),
+    status character varying(255),
+    email character varying(255),
+    volunteer character varying(255),
+    notes character varying(255),
+    legal_status character varying(255),
+    irrigation character varying(255),
+    water_freq character varying(255),
+    watering_end_date character varying(255),
+    last_watered character varying(255),
+    count character varying(255),
+    dbh_min character varying(255),
+    dbh_max character varying(255),
+    height_min character varying(255),
+    height_max character varying(255),
+    crown_min character varying(255),
+    crown_max character varying(255)
 );
 
 
@@ -49,7 +76,7 @@ ALTER TABLE public.crosswalk ALTER COLUMN id_crosswalk ADD GENERATED ALWAYS AS I
 
 
 ALTER TABLE ONLY public.crosswalk
-    ADD CONSTRAINT crosswalk_id_fkey FOREIGN KEY (id) REFERENCES public.sources(id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT crosswalk_id_fkey FOREIGN KEY (id_source_name) REFERENCES public.sources(id_source_name) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 

@@ -41,7 +41,20 @@ CREATE TABLE public.treedata (
     watering_end_date timestamp without time zone,
     last_watered timestamp without time zone,
     id bigint NOT NULL,
-    source_id character varying(255)
+    id_source_name character varying(255),
+    species character varying(255),
+    family character varying(255),
+    class character varying(255),
+    count integer DEFAULT 1,
+    planted character varying(255),
+    variety character varying(255),
+    location character varying(255),
+    dbh_min integer,
+    dbh_max integer,
+    height_min integer,
+    height_max integer,
+    crown_min integer,
+    crown_max integer
 );
 
 

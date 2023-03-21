@@ -1,7 +1,7 @@
 
 CREATE TABLE public.sources (
     id_sources integer NOT NULL,
-    id character varying(255),
+    id_source_name character varying(255),
     short character varying(255),
     city character varying(255),
     state character varying(255),
@@ -10,7 +10,6 @@ CREATE TABLE public.sources (
     iso_alpha_3 character varying(3),
     numeric_country_code integer DEFAULT 0,
     long character varying(255),
-    id_city_name character varying(255),
     main character varying(255),
     center character varying(255),
     longitude double precision,
@@ -22,7 +21,7 @@ CREATE TABLE public.sources (
     trees_per_source_count integer DEFAULT 0,
     country_code character varying(10),
     broken boolean DEFAULT false,
-    broken_reason character varying(255),
+    notes character varying(255),
     info text,
     download text,
     format character varying(255),
@@ -48,7 +47,7 @@ ALTER TABLE public.sources ALTER COLUMN id_sources ADD GENERATED ALWAYS AS IDENT
 
 
 
-CREATE UNIQUE INDEX id_idx ON public.sources USING btree (id);
+CREATE UNIQUE INDEX id_idx ON public.sources USING btree (id_source_name);
 
 
 

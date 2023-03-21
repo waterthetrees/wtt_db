@@ -71,6 +71,8 @@ These files should be run against a local version of postgres for testing.
 
 After running the migration, we want to keep the database table files up-to-date.
 All schema changes and pull requests with migrations should run the
-`scipts/fetch-tables.sh` script. This will update all table files in the `tables/` directory.
+`scripts/fetch-tables.sh` script. This will update all table files in the `tables/` directory.
 The script can be run against a local postgres instance.
-
+```shell
+$ ./scripts/fetch-tables.sh 
+```

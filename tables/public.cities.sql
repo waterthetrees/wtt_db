@@ -11,7 +11,7 @@ CREATE TABLE public.cities (
     country text,
     city_count_trees integer DEFAULT 0,
     modified timestamp without time zone,
-    id character varying(255),
+    id_source_name character varying(255),
     short character varying(255),
     info text,
     download text,
