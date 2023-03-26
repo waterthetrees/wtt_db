@@ -1,7 +1,7 @@
 
 -- drop table public.tree_sources_staging;
-CREATE UNLOGGED TABLE tree_sources_staging (
-    id_tree_sources_staging bigserial not null primary key,
+CREATE UNLOGGED TABLE treedata_staging (
+    id_treedata_staging bigserial not null primary key,
     geom         geometry(Point,4326),
     id           character varying(255),
     ref          character varying (255),
