@@ -43,3 +43,4 @@ ON CONFLICT DO NOTHING;
 --     country_code character varying(64),
 --     lng double precision,
 --     lat double precision
+

@@ -8,6 +8,12 @@ CREATE TABLE treeimages(
     image_number integer NOT NULL default 0,
     id character varying(255),
     email character varying(255) NOT NULL,
+    -- We want to join with the treedata table - one image to many different tree ids locations
+    -- TODO: one image to one unique tree in tree_taxonomy - ths is not built yet
+    id character varying(255),
+
+    -- We want to join with the user table - one image to one user
+    email character varying(255) NOT NULL,
     modified timestamp without time zone,
     created timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
@@ -24,6 +30,10 @@ CREATE TABLE treeimages(
 ALTER TABLE ONLY public.tree_images
     ADD CONSTRAINT tree_image_email_fkey FOREIGN KEY (email) REFERENCES public.users(email);
 
-
 ALTER TABLE ONLY public.treedata
     ADD CONSTRAINT tree_image_fkey FOREIGN KEY (id) REFERENCES public.treedata(id);
+
+
+ALTER TABLE ONLY public.treedata
+    ADD CONSTRAINT tree_image_fkey FOREIGN KEY (tree_image_id) REFERENCES public.users(tree_image_id);
+
