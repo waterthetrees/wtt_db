@@ -35,7 +35,7 @@ CREATE UNLOGGED TABLE public.treedata_staging (
 ALTER TABLE public.treedata_staging OWNER TO trees;
 
 
-CREATE SEQUENCE public.treedata_staging_id_treedata_staging_seq
+CREATE UNLOGGED SEQUENCE public.treedata_staging_id_treedata_staging_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
