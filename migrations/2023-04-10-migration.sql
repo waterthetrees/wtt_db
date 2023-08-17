@@ -33,13 +33,14 @@ WHERE countries.country IS NULL
 ON CONFLICT DO NOTHING;
 
 
- id_country integer NOT NULL,
-    country character varying(255) NOT NULL,
-    country_count_trees integer DEFAULT 0,
-    created timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    modified timestamp without time zone,
-    country_count_cities integer DEFAULT 0,
-    country_short character varying(64),
-    country_code character varying(64),
-    lng double precision,
-    lat double precision
+--  id_country integer NOT NULL,
+--     country character varying(255) NOT NULL,
+--     country_count_trees integer DEFAULT 0,
+--     created timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+--     modified timestamp without time zone,
+--     country_count_cities integer DEFAULT 0,
+--     country_short character varying(64),
+--     country_code character varying(64),
+--     lng double precision,
+--     lat double precision
+

@@ -98,12 +98,7 @@ CREATE TRIGGER geom_update AFTER INSERT ON public.treedata FOR EACH ROW EXECUTE 
 
 
 ALTER TABLE ONLY public.treedata
-    ADD CONSTRAINT treedata_planted_by_email_fkey FOREIGN KEY (email) REFERENCES public.users(email);
-
-
-
-ALTER TABLE ONLY public.treedata
-    ADD CONSTRAINT treedata_planted_by_nickname_fkey FOREIGN KEY (volunteer) REFERENCES public.users(nickname);
+    ADD CONSTRAINT tree_image_fkey FOREIGN KEY (id) REFERENCES public.treedata(id);
 
 
 
